@@ -105,11 +105,7 @@ void DetectionSensing::apply(SensorData &sensor_data) {
                 float wavelength = Speed_of_Light / emitter_frequency;
 
                 /// Reserve memory for the radar cuboid to prevent re-allocations at every complex signal strength iteration
-                type_radar_cuboid radar_cuboid (number_range_bin,
-                                                std::vector<std::vector<std::vector<std::vector<float> > > >(number_doppler_bin,
-                                                                                                             std::vector<std::vector<std::vector<float> > >(number_azimuth_bin,
-                                                                                                                                                            std::vector<std::vector<float> >(number_elevation_bin,
-                                                                                                                                                                                             std::vector<float>(2)))));
+                type_radar_cuboid radar_cuboid (number_range_bin, std::vector<std::vector<std::vector<std::vector<float> > > >(number_doppler_bin, std::vector<std::vector<std::vector<float> > >(number_azimuth_bin, std::vector<std::vector<float> >(number_elevation_bin, std::vector<float>(2)))));
 
                 /// Run through all reflections and append valid ones to the radar cuboid
                 for (uint64_t reflection_idx = 0; reflection_idx < no_of_reflections; reflection_idx++) {
